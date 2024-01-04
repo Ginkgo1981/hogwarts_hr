@@ -1,0 +1,37 @@
+.DS_Store
+.vscode
+.idea/
+.generators
+.rakeTasks
+# server
+# Ignore bundler config.
+.bundle
+.env.local
+.env.test
+
+# Ignore all logfiles and tempfiles.
+log/*
+tmp/*
+!log/.keep
+!tmp/.keep
+
+# Ignore uploaded files in development
+storage/*
+!storage/.keep
+
+.byebug_history
+config/database.yml
+
+# Ignore master key for decrypting credentials and more.
+config/master.key
+.vscode/*
+
+# Ignore coverage results
+coverage/*
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
