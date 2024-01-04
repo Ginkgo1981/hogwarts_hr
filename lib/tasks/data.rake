@@ -4,8 +4,9 @@ require 'csv'
 namespace :data  do
   desc "Import students data from CSV file"
   task :import_student_data_from_csv, [:file] => :environment do |_, args|
-    # raise "No file specified" unless args[:file].present?
-    file_path = args[:file] || '/Users/jian/Desktop/test/students.csv'
+    raise "No file specified" unless args[:file].present?
+
+    file_path = args[:file]
     student_attributes = []
     student_tasks_attributes = []
     CSV.foreach(file_path, headers: true, converters: [lambda { |field| field.nil? || field.empty? ? nil : field }], quote_char: '"', col_sep: ';') do |row|
@@ -27,9 +28,9 @@ namespace :data  do
 
   desc "Import shifts data from CSV file"
   task :import_shifts_data_from_csv, [:file] => :environment do |_, args|
-    # raise "No file specified" unless args[:file].present?
+    raise "No file specified" unless args[:file].present?
 
-    file_path = args[:file] || '/Users/jian/Desktop/test/shifts.csv'
+    file_path = args[:file]
     shifts_attributes = []
     CSV.foreach(file_path, headers: true, converters: [lambda { |field| field.nil? || field.empty? ? nil : field }], quote_char: '"', col_sep: ';') do |row|
       r = row.to_h
